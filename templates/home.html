@@ -1,45 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>careers</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+            integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
         <style>
-            h1 {
-                font-size: 40;
-                font-family: Roboto;
-                color: rgb(180, 180, 100);
-                text-align: center;
-            }
-            h2 {
-                font-size: 20;
-                font-family: Roboto;
-                color: rgb(100, 100, 100);
-                text-align: center;
-            }
-            .bodytext {
-                font-size: 11;
-                font-family: Roboto;
-                color: rgb(0, 0, 0);
-                text-align: center;
-            }
-
             #banner {
-                width: 100%;
-                height: 150px;
+                width: 80%;
+                height: 200px;
                 object-fit: cover;
             }
-            #container {
-                max-width: 70%;
-                margin: 0 auto 0 auto;
-            }
-
         </style>
     </head>
+
     <body>
-        <div id="container">
-            <h1>lot of work</h1>
-            <img id="banner", src="http://127.0.0.1:5000/static/mysz-pigmejska.jpg">
-            <h2>About</h2>
-            <p class="bodytext">
+        <div class="container">
+            <h1 class="text-center mt-2 mb-2">lot of work</h1>
+            <img class="img-fluid", id="banner", src="http://127.0.0.1:5000/static/mysz-pigmejska.jpg">
+            <h2 class="text-center">About</h2>
+            <p class="text-center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Volutpat maecenas volutpat blandit aliquam etiam erat velit. Mollis aliquam ut porttitor leo. In iaculis nunc sed augue lacus
                 viverra vitae congue eu. Massa tincidunt dui ut ornare lectus sit amet est placerat. Magnis dis parturient montes nascetur 
@@ -47,14 +29,19 @@
                 viverra vitae congue eu consequat. Dis parturient montes nascetur ridiculus. Consectetur adipiscing elit pellentesque habitant
                 morbi. Vitae elementum curabitur vitae nunc sed velit dignissim sodales ut. Posuere urna nec tincidunt praesent semper feugiat.
             </p>
-            <h2>Open positions</h2>
-            <p class="bodytext"> TODO: jobs </p>
-
-            <div style="text-align:center">
-                <button>Contack</button>
+            <h2 class="text-center">Open positions</h2>
+            
+            <div> 
+                {% for job in jobs %}
+                    {% include 'jobitem.html' %}
+                {% endfor %}
             </div>
-            <p> Copyright 2023, myszy </p>
-    </div>
-    </body>
 
+            <div class="text-center">
+                <button type="button" class="btn btn-primary btn-lg">Contact button</button>
+            </div>
+            
+            <p class="text-center mt-4"> Copyright 2023, myszy </p>
+        </div>
+    </body>
 </html>
