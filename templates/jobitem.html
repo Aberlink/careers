@@ -1,0 +1,16 @@
+<div class="row" style="border-bottom: 1px solid black; margin-bottom:15px; padding-bottom:4px">
+    <div class="col-md-10">
+        <h3>{{job.title}}</h3>
+        <div>
+            Location {{job.location}}
+        </div>
+        {%if job.salary > 4000 %}
+            <div>
+                <b>Salary {{job.salary}}</b>
+            </div>
+        {%endif%}
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-success">Apply</button>
+    </div>
+</div>
