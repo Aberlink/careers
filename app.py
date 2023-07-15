@@ -30,4 +30,5 @@ def ask_jobs():
     
     return jsonify(job_list)
 
-app.run(host=adress, port=port, debug=True)
+if __name__ == "__main__":
+    app.run(host=adress, port=port, debug=True)
