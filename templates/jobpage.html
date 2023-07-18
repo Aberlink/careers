@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {%include "bootstrap.html"%}
+
+    <title>{{job.title}} Myszy</title>
+</head>
+
+<body>
+    {%include 'nav.html'%}
+
+    <div class="container">
+        {%include "banner.html"%}
+        <h3>Title</h3>
+        <p>{{job.title}}</p>
+
+        <h3>location</h3>
+        <p>{{job.location}}</p>
+    
+        <h3>salary</h3>
+        <p>{{job.salary}} {{job.currency}}</p>
+    
+    
+        <h3>responsibilities</h3>
+        <ul>
+            {%for line in job.responsibilities%}
+                <li>{{line}}</li>
+            {%endfor%}
+        </ul>
+    
+        <h3>requirements</h3>
+        <p>{{job.requirements}}</p>
+    </div>
+   
+    {%include 'footer.html'%}
+</body>
+
+</html>
