@@ -1,7 +1,7 @@
 from job import Job
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 
-from db import get_jobs_from_db, get_job_from_db
+from db import get_jobs_from_db, get_job_from_db, save_aplication_to_db
 
 app = Flask(__name__)
 adress = "127.0.0.1"
@@ -35,6 +35,15 @@ def show_job(job_id):
     if not job:
         return "Not Found", 404
     return render_template("jobpage.html", job=job)
+
+@app.route("/job/<int:job_id>/apply", methods=['post'])
+def apply_to_job(job_id):
+    data = request.form
+    job = get_job_from_db(job_id)
+    save_aplication_to_db(job, data)
+    
+    return render_template("aplication_submited.html", aplication=data, job=job)
+    
 
 if __name__ == "__main__":
     app.run(host=adress, port=port, debug=True)

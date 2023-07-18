@@ -36,6 +36,17 @@ def get_resp_from_db(job_id):
         rows = result.all()
         tasks = [row[0] for row in rows]
         return tasks
+    
+def save_aplication_to_db(job, aplication):
+    query = "INSERT INTO aplications (fk_jobs_job_id, name, email, linkedIn) VALUES (:job_id, :name, :email, :ln)"
+    with engine.connect() as conn:
+        conn.execute(text(query), 
+                          job_id=job.id,
+                          name = aplication["full_name"],
+                          email = aplication["email"],
+                          ln = aplication["LinkedIn"]
+                          )
+        
 
 
 

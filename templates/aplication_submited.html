@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {%include "bootstrap.html"%}
+
+    <title>Submited</title>
+</head>
+
+<body>
+    {%include 'nav.html'%}
+    <div class="container mx-auto">
+        <h5 class="text-center mb-5">Succesfull aplication for <b>{{job.title}}</b></h5>
+        <p class="text-center">Name: <br> {{aplication.full_name}}</p>
+        <p class="text-center">email: <br> {{aplication.email}}</p>
+        <p class="text-center">LinkedIn: <br> {{aplication.LinkedIn}}</p>
+    </div>
+   
+    {%include 'footer.html'%}
+</body>
+
+</html>
