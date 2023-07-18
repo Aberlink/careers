@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - 5431:5432          # Change the local port to avoid conflict
+    volumes:
+      - careers:/var/lib/postgresql/data     # Use a different volume name
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080          # Change the local port to avoid conflict
+
+volumes:
+  careers:            # Use a different volume name
+    driver: local

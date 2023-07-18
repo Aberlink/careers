@@ -1,23 +1,22 @@
 from job import Job
 from flask import Flask, render_template, jsonify
 
+from db import get_jobs_from_db
+
 app = Flask(__name__)
 adress = "127.0.0.1"
 port = 5000
-
-a = Job("123", "plumber", "Krakow", 3500)
-b = Job("xaawd", "painter", "Wroclaw", 5400)
-c = Job("css1eq", "carpenter", "katowice", 4200)
-
-jobs = [a,b,c]
+jobs = []
 
 @app.route("/")
 def hellow():
+    jobs = get_jobs_from_db()
     return render_template('home.html', \
         jobs=jobs)
     
 @app.route("/api/jobs")
 def ask_jobs():
+    jobs = get_jobs_from_db()
     job_list = []
     for job in jobs:
         job_dict = {
